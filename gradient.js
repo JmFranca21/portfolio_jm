@@ -14,7 +14,9 @@ class Gradient {
     constructor() {
         
         this.canvas = document.createElement('canvas');
-        document.body.appendChild(this.canvas);
+        this.canvas = document.getElementById('intro-canvas');
+        this.ctx = this.canvas.getContext('2d');
+
         this.ctx = this.canvas.getContext('2d');
 
         this.pixelRatio = (window.devicePixelRatio > 1) ? 2 : 1;
@@ -31,8 +33,8 @@ class Gradient {
     }
 
     resize() {
-        this.stageWidth = document.body.clientWidth;
-        this.stageHeight = document.body.clientHeight;
+        this.stageWidth = window.innerWidth;   // Mude de document.body.clientWidth para window.innerWidth
+        this.stageHeight = window.innerHeight;
 
         this.canvas.width = this.stageWidth * this.pixelRatio;
         this.canvas.height = this.stageHeight * this.pixelRatio;
