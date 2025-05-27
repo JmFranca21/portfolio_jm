@@ -48,6 +48,73 @@ body {
     transform: scaleX(1);
 }
 
+/* Para Firefox */
+html, body {
+  scrollbar-width: none;
+  -ms-overflow-style: none; /* IE 10+ */
+}
+
+/* Para Chrome, Safari e Edge */
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none;
+}
+
+/* Intro Section */
+#intro {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9999;
+    overflow: hidden;
+    background: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#intro-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+#intro-logo {
+    position: fixed;
+    color: white;
+    font-size: 60px;
+    font-weight: bold;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    pointer-events: none;
+    transition: none; /* animação será controlada pelo JS */
+}
+
+
+#scroll-down {
+    position: absolute;
+    bottom: 50px;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+    animation: bounce 2s infinite;
+}
+
+@keyframes fadeInLogo {
+    0% { opacity: 0; transform: scale(0.8); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(10px); }
+}
+
 /* Header */
 
 header {
@@ -173,27 +240,6 @@ footer i:hover {
 
 #buttonTopo:hover {
     background-color: #0190cd ;
-}
-
-
-::-webkit-scrollbar {
-    width: 13px;
-}
-
-::-webkit-scrollbar-track {
-    background: transparent;
-    border-radius: 10px;
-}
-
-::-webkit-scrollbar-thumb {
-    background-color: #796A9E;
-    border-radius: 10px;
-    border: 2px solid transparent;
-    background-clip: content-box;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background-color: #7c8d4e;
 }
 
 
